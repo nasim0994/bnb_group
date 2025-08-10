@@ -40,7 +40,7 @@ export default function OurBrands() {
           </Link>
 
           <Link
-            to=""
+            to="/brand/bnb-agro"
             className="w-full sm:w-80 border rounded border-dashed border-secondary/70 p-6 hover:border-secondary hover:bg-base-100 duration-200"
           >
             <img

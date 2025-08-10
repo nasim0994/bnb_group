@@ -22,6 +22,7 @@ import OurBrandsPage from "../pages/OurBrandsPage";
 import Shop from "../pages/Shop";
 import NewsEventsPage from "../pages/NewsEventsPage";
 import BNBPower from "../pages/Brands/BNBPower";
+import BNBAgro from "../pages/Brands/BNBAgro";
 
 const Dashboard = lazy(() => import("../pages/Dashboard/Dashboard"));
 const SEO = lazy(() => import("../pages/Dashboard/SEO/SEO"));
@@ -83,6 +84,10 @@ export const routes = createBrowserRouter([
       {
         path: "/brand/bnb-power",
         element: <BNBPower />,
+      },
+      {
+        path: "/brand/bnb-agro",
+        element: <BNBAgro />,
       },
       {
         path: "/e-shop",
