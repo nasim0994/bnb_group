@@ -5,7 +5,6 @@ import Spinner from "../components/Spinner/Spinner";
 import MainLayout from "../Layout/MainLayout";
 import Home from "../pages/Home/Home";
 
-const ServicesPage = lazy(() => import("../pages/ServicesPage"));
 const ContactPage = lazy(() => import("../pages/ContactPage"));
 import Login from "../pages/Login/Login";
 
@@ -16,10 +15,12 @@ import AddAbout from "../pages/Dashboard/AboutUs/AddAbout";
 import EditAbout from "../pages/Dashboard/AboutUs/EditAbout";
 import WhoWeAre from "../pages/Dashboard/AboutUs/WhoWeAre/WhoWeAre";
 import WhoWeArePage from "../pages/WhoWeArePage";
-import CompanyDetails from "../pages/Company/CompanyDetails";
 import AllCompanies from "../pages/Dashboard/Company/Companies/AllCompanies";
 import AddCompany from "../pages/Dashboard/Company/Companies/AddCompany";
 import EditCompany from "../pages/Dashboard/Company/Companies/EditCompany";
+import OurBrandsPage from "../pages/OurBrandsPage";
+import Shop from "../pages/Shop";
+import NewsEventsPage from "../pages/NewsEventsPage";
 
 const Dashboard = lazy(() => import("../pages/Dashboard/Dashboard"));
 const SEO = lazy(() => import("../pages/Dashboard/SEO/SEO"));
@@ -75,20 +76,16 @@ export const routes = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/company/:slug",
-        element: (
-          <Suspense fallback={<Spinner />}>
-            <CompanyDetails />
-          </Suspense>
-        ),
+        path: "/brands",
+        element: <OurBrandsPage />,
       },
       {
-        path: "/services",
-        element: (
-          <Suspense fallback={<Spinner />}>
-            <ServicesPage />
-          </Suspense>
-        ),
+        path: "/e-shop",
+        element: <Shop />,
+      },
+      {
+        path: "/news-events",
+        element: <NewsEventsPage />,
       },
       {
         path: "/contact-us",

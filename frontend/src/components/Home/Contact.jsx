@@ -6,10 +6,6 @@ import parse from "html-react-parser";
 import { useLocation } from "react-router-dom";
 
 export default function Contact() {
-  const { pathname } = useLocation();
-  const { data } = useGetContactsQuery();
-  const contact = data?.data;
-
   const [addMessage, { isLoading }] = useAddMessageMutation();
 
   const handleAdd = async (e) => {
@@ -40,10 +36,11 @@ export default function Contact() {
         <div className="grid md:grid-cols-2 gap-8 md:gap-14">
           <div>
             <h2 className="text-2xl md:text-3xl font-semibold text-neutral">
-              {contact?.title}
+              Contact BNB
             </h2>
             <p className="text-neutral-content text-[15px] mt-1">
-              {contact?.description}
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae,
+              nostrum!
             </p>
 
             <div className="mt-3 flex gap-3 items-center border rounded p-4 bg-base-100">
@@ -52,7 +49,7 @@ export default function Contact() {
               </p>
               <div>
                 <p className="text-lg font-medium">Email</p>
-                <p className="text-neutral-content">{contact?.email}</p>
+                <p className="text-neutral-content">info@bnb-bd.com</p>
               </div>
             </div>
 
@@ -64,25 +61,9 @@ export default function Contact() {
                   </p>
                   <div>
                     <p className="text-lg font-medium">Number</p>
-                    <p className="text-neutral-content">{contact?.phone}</p>
+                    <p className="text-neutral-content">+88 01717-143521</p>
                   </div>
                 </div>
-
-                {contact?.numbers?.length > 0 &&
-                  contact?.numbers?.map((number, i) => (
-                    <div
-                      key={i}
-                      className="flex gap-3 items-center border rounded p-4 bg-base-100"
-                    >
-                      <p>
-                        <FaPhone className="text-xl" />
-                      </p>
-                      <div>
-                        <p className="text-lg font-medium">{number?.title}</p>
-                        <p className="text-neutral-content">{number?.number}</p>
-                      </div>
-                    </div>
-                  ))}
               </div>
 
               <div>
@@ -91,27 +72,26 @@ export default function Contact() {
                     <FaLocationDot className="text-xl" />
                   </p>
                   <div>
-                    <p className="text-lg font-medium">Address</p>
+                    <p className="text-lg font-medium">Corporate Office:</p>
                     <p className="text-neutral-content">
-                      {contact?.mainaddress}
+                      Sabbir Chamber (2nd Floor) 60, Agrabad, C/Ac,
+                      Chittagoang-4100, Bangladesh
                     </p>
                   </div>
                 </div>
-                {contact?.address?.length > 0 &&
-                  contact?.address?.map((ads, i) => (
-                    <div
-                      key={i}
-                      className="flex gap-3 items-center border rounded p-4 bg-base-100"
-                    >
-                      <p>
-                        <FaLocationDot className="text-xl" />
-                      </p>
-                      <div>
-                        <p className="text-lg font-medium">{ads?.title}</p>
-                        <p className="text-neutral-content">{ads?.number}</p>
-                      </div>
-                    </div>
-                  ))}
+
+                <div className="flex gap-3 items-center border rounded p-4 bg-base-100">
+                  <p>
+                    <FaLocationDot className="text-xl" />
+                  </p>
+                  <div>
+                    <p className="text-lg font-medium">Dhaka Office address:</p>
+                    <p className="text-neutral-content">
+                      Southern Ridge, House: 64 (1st Floor), Road: 03, Block: B,
+                      Niketon, Gulshan-1, Dhaka - 1212
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -178,10 +158,6 @@ export default function Contact() {
             </form>
           </div>
         </div>
-
-        {pathname == "/contact-us" && (
-          <div className="mt-4">{contact?.map && parse(contact?.map)}</div>
-        )}
       </div>
     </section>
   );

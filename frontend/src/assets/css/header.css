@@ -1,7 +1,6 @@
 .menu_wrap ul {
   display: flex;
   align-items: center;
-  gap: 6px;
 }
 
 .menu_wrap ul li {

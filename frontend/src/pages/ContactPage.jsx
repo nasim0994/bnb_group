@@ -3,7 +3,7 @@ import Contact from "../components/Home/Contact";
 
 export default function ContactPage() {
   useEffect(() => {
-    document.title = "B&B - Contact Us";
+    document.title = "BNB - Contact Us";
     window.scrollTo(0, 0);
   }, []);
 

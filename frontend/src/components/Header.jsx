@@ -6,10 +6,7 @@ import { useGetLogosQuery } from "../Redux/logoApi";
 import { useGetAllCompanyQuery } from "../Redux/companyApi";
 
 export default function Header() {
-  const [mobileMenu, setmobileMenu] = useState(false);
-
-  const { data } = useGetLogosQuery();
-  const logo = useMemo(() => data?.data.logo, [data?.data]);
+  const [mobileMenu, setMobileMenu] = useState(false);
 
   const { data: company } = useGetAllCompanyQuery();
   const companies = company?.data;
@@ -21,7 +18,7 @@ export default function Header() {
         !e.target.closest(".menu_btn") &&
         !e.target.closest(".menu_wrap ul li a svg")
       ) {
-        setmobileMenu(false);
+        setMobileMenu(false);
       }
     });
   }, []);
@@ -32,57 +29,53 @@ export default function Header() {
         <div className="flex justify-between items-center">
           <Link to="/">
             <img
-              src={import.meta.env.VITE_BACKEND_URL + logo}
+              src="/images/logo.png"
               alt="logo"
-              className="w-20 sm:w-24 xl:w-[115px]"
+              className="w-20 sm:w-24 xl:w-56"
               loading="lazy"
             />
           </Link>
 
           <nav className="menu_wrap flex items-center gap-2">
             <button
-              onClick={() => setmobileMenu(false)}
+              onClick={() => setMobileMenu(false)}
               className={`menu_overlay ${mobileMenu && "menu_overlay_show"}`}
             ></button>
 
             <button
-              onClick={() => setmobileMenu(!mobileMenu)}
+              onClick={() => setMobileMenu(!mobileMenu)}
               className="md:hidden menu_btn"
             >
               <HiOutlineMenuAlt3 className="text-2xl" />
             </button>
 
-            <ul className={`flex items-center gap-4 ${mobileMenu && "show"}`}>
+            <ul
+              className={`flex items-center gap-3 font-medium ${
+                mobileMenu && "show"
+              }`}
+            >
               <li>
                 <NavLink to="/">Home</NavLink>
               </li>
 
               <li>
-                <NavLink to="/who-we-are">About</NavLink>
+                <NavLink to="/who-we-are">About Us</NavLink>
               </li>
 
               <li>
-                <NavLink to="/services">Services</NavLink>
+                <NavLink to="/brands">Our Brands</NavLink>
               </li>
 
               <li>
-                <Link to="#">Company</Link>
-
-                <div className="dropdown">
-                  <ul>
-                    {companies?.map((company, i) => (
-                      <li key={i}>
-                        <Link to={`/company/${company?.slug}`}>
-                          {company?.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <NavLink to="news-events">News & Events</NavLink>
               </li>
 
               <li>
-                <NavLink to="/contact-us">Contact</NavLink>
+                <NavLink to="e-shop">E Shop</NavLink>
+              </li>
+
+              <li>
+                <NavLink to="/contact-us">Contact Us</NavLink>
               </li>
             </ul>
           </nav>

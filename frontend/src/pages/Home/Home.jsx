@@ -1,13 +1,12 @@
 import "../../assets/css/home.css";
-import { Suspense, lazy } from "react";
-import Spinner from "../../components/Spinner/Spinner";
 import Banner from "../../components/Home/Banner";
 import Whoweare from "../../components/Home/Whoweare";
-import MoreAbout from "../../components/Home/MoreAbout";
-import Companies from "../../components/Home/Companies";
-const Contact = lazy(() => import("../../components/Home/Contact"));
-const Counter = lazy(() => import("../../components/Home/Counter"));
-const Services = lazy(() => import("../../components/Home/Services"));
+import OurClients from "../../components/Home/OurClients";
+import Counter from "../../components/Home/Counter";
+import BNBResort from "../../components/Home/BNBResort";
+import BNBResort2 from "../../components/Home/BNBResort2";
+import OurBrands from "../../components/Home/OurBrands";
+import NewsEvents from "../../components/Home/NewsEvents";
 
 export default function Home() {
   window.scrollTo(0, 0);
@@ -15,14 +14,13 @@ export default function Home() {
   return (
     <>
       <Banner />
-      <Companies />
+      <OurBrands />
       <Whoweare />
-      <MoreAbout />
-      <Suspense fallback={<Spinner />}>
-        <Services />
-        <Counter />
-        <Contact />
-      </Suspense>
+      <Counter />
+      <BNBResort />
+      <BNBResort2 />
+      <OurClients />
+      <NewsEvents />
     </>
   );
 }

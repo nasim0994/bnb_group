@@ -6,7 +6,7 @@ import { useEffect } from "react";
 
 export default function Login() {
   useEffect(() => {
-    document.title = "B&B - Login";
+    document.title = "BNB - Login";
   }, []);
   const { loggedUser } = useSelector((store) => store.user);
   const [login, { isLoading }] = useLoginMutation();
