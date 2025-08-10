@@ -11,7 +11,7 @@ export default function OurBrands() {
 
         <div className="mt-6 sm:mt-10 flex items-start justify-center flex-wrap gap-5">
           <Link
-            to=""
+            to="/brand/bnb-power"
             className="w-full sm:w-80 border rounded border-dashed border-secondary/70 p-6 hover:border-secondary hover:bg-base-100 duration-200"
           >
             <img
